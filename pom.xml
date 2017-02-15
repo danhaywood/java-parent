@@ -3,20 +3,20 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.incode</groupId>
-    <artifactId>incode-parent</artifactId>
-    <version>1.14.0-SNAPSHOT</version>
+    <groupId>com.danhaywood.java</groupId>
+    <artifactId>java-parent</artifactId>
+    <version>1-SNAPSHOT</version>
 
     <packaging>pom</packaging>
     
-    <name>Incode Parent POM</name>
+    <name>Java build Parent POM</name>
     <description>
-        This module defines a standard parent POM to use for various Incode applications and modules.  
+        This module defines a standard parent POM to use for various Java applications and modules.
         Its primary purpose is to make it easy to use a set up maven mixins (https://github.com/odavid/maven-plugins) within child POMs; 
         specifically to hold the required pluginManagement so that versions of plugins are locked down.
     </description>
     
-    <url>https://github.com/incodehq/incode-parent</url>
+    <url>https://github.com/danhaywood/java-parent</url>
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -25,9 +25,9 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git@github.com:incodehq/incode-parent.git</connection>
-        <developerConnection>scm:git:git@github.com:incodehq/incode-parent.git</developerConnection>
-        <url>git@github.com:incodehq/incode-parent.git</url>
+        <connection>scm:git:git@github.com:danhaywood/java-parent.git</connection>
+        <developerConnection>scm:git:git@github.com:danhaywood/java-parent.git</developerConnection>
+        <url>git@github.com:danhaywood/java-parent.git</url>
     </scm>
     <developers>
         <developer>
@@ -39,15 +39,14 @@
     
     <profiles>
         <profile>
-            <id>incode-parent</id>
+            <id>java-parent</id>
             <activation>
                 <property>
-                    <name>!skip.incode-parent</name>
+                    <name>!skip.java-parent</name>
                 </property>
             </activation>
 	    
 	        <properties>
-    			<isis.version>1.13.2</isis.version>
 
     			<mavenmixin-cucumberreporting.version>0.0.2</mavenmixin-cucumberreporting.version>
                 <maven-cucumber-reporting.version>3.2.0</maven-cucumber-reporting.version>
@@ -61,10 +60,6 @@
 
     			<mavenmixin-enforcerrelaxed.version>0.0.2</mavenmixin-enforcerrelaxed.version>
     			<maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
-
-    			<mavenmixin-isisswagger.version>0.0.3</mavenmixin-isisswagger.version>
-    			<mavenmixin-isisvalidate.version>0.0.2</mavenmixin-isisvalidate.version>
-    			<isis-maven-plugin.version>${isis.version}</isis-maven-plugin.version>
 
     			<mavenmixin-jettyconsole.version>0.0.2</mavenmixin-jettyconsole.version>
     			<jetty-console-maven-plugin.version>1.59</jetty-console-maven-plugin.version>
@@ -103,10 +98,6 @@
                 <mavenmixin-docker.version>0.0.3</mavenmixin-docker.version>
                 <docker-maven-plugin.version>0.4.13</docker-maven-plugin.version>
 
-    			<mavendeps-isistesting.version>0.0.2</mavendeps-isistesting.version>
-    			<mavendeps-isisintellij.version>0.0.1</mavendeps-isisintellij.version>
-    			<mavendeps-isiswebapp.version>0.0.1</mavendeps-isiswebapp.version>
-
     			<maven-checkstyle-plugin.configLocation>${project.basedir}/codequality/checkstyle.xml</maven-checkstyle-plugin.configLocation>
     			<maven-pmd-plugin.ruleset>${project.basedir}/codequality/pmd.xml</maven-pmd-plugin.ruleset>
 
@@ -141,13 +132,6 @@
                         <plugin>
                             <artifactId>maven-enforcer-plugin</artifactId>
                             <version>${maven-enforcer-plugin.version}</version>
-                        </plugin>
-
-                        <!-- mavenmixin-isisvalidate & mavenmixin-isisswagger -->
-                        <plugin>
-                            <groupId>org.apache.isis.tool</groupId>
-                            <artifactId>isis-maven-plugin</artifactId>
-                            <version>${isis-maven-plugin.version}</version>
                         </plugin>
 
                         <!-- mavenmixin-jettyconsole -->
@@ -284,24 +268,6 @@
                         <groupId>com.danhaywood.mavenmixin</groupId>
                         <artifactId>enforcerrelaxed</artifactId>
                         <version>${mavenmixin-enforcerrelaxed.version}</version>
-                        <type>pom</type>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.danhaywood.mavenmixin</groupId>
-                        <artifactId>isisjrebel</artifactId>
-                        <version>${mavenmixin-isisjrebel.version}</version>
-                        <type>pom</type>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.danhaywood.mavenmixin</groupId>
-                        <artifactId>isisswagger</artifactId>
-                        <version>${mavenmixin-isisswagger.version}</version>
-                        <type>pom</type>
-                    </dependency>
-                    <dependency>
-                        <groupId>com.danhaywood.mavenmixin</groupId>
-                        <artifactId>isisvalidate</artifactId>
-                        <version>${mavenmixin-isisvalidate.version}</version>
                         <type>pom</type>
                     </dependency>
                     <dependency>
