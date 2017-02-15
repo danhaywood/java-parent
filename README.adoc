@@ -1,9 +1,9 @@
-= incodehq-parent
+= java-parent
 :_imagesdir: ./
 :toc:
 
 
-This module defines a standard parent POM to use for various Incode applications and modules.
+This module defines a standard parent POM to use for various Java applications and modules.
 Its primary purpose is to make it easy to use a set up link:https://github.com/odavid/maven-plugins[maven mixin]s within child POMs; specifically to hold the required `<pluginManagement>` so that versions of plugins are locked down.
 
 See below for details of the maven mixins so configured.
